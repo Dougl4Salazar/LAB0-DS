@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LAB0DS.Helpers;
+using LAB0DS.Models;
 
 namespace LAB0DS.Controllers
 {
@@ -12,7 +14,7 @@ namespace LAB0DS.Controllers
         // GET: ClientesController
         public ActionResult Index()
         {
-            return View();
+            return View(Data.Instance.clienteslist);
         }
 
         // GET: ClientesController/Details/5
