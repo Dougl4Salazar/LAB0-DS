@@ -109,5 +109,15 @@ namespace LAB0DS.Controllers
                 return View();
             }
         }
+        public ActionResult OrdenNombre()
+        {
+            ClientesModel.OrdenNombre();
+            return View(Data.Instance.clienteslist);
+        }
+        public ActionResult OrdenApellido()
+        {
+            ClientesModel.OrdenApellido();
+            return View(Data.Instance.clienteslist);
+        }
     }
 }

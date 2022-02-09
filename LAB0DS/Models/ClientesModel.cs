@@ -46,6 +46,40 @@ namespace LAB0DS.Models
             
             return false;
         }
+        public static void OrdenNombre()
+        {
+            int tam = Data.Instance.clienteslist.Count;
+            for (int i = 0; i < tam; i++)
+            {
+                for (int j = 0; j < tam - 1 - i; j++)
+                {
+                    int c = Data.Instance.clienteslist[j].Nombre.CompareTo(Data.Instance.clienteslist[j + 1].Nombre);
+                    if (c > 0)
+                    {
+                        var auxiliar = Data.Instance.clienteslist[j + 1];
+                        Data.Instance.clienteslist[j + 1] = Data.Instance.clienteslist[j];
+                        Data.Instance.clienteslist[j] = auxiliar;
+                    }
+                }
+            }
+        }
 
+        public static void OrdenApellido()
+        {
+            int tam = Data.Instance.clienteslist.Count;
+            for (int i = 0; i < tam; i++)
+            {
+                for (int j = 0; j < tam - 1 - i; j++)
+                {
+                    int c = Data.Instance.clienteslist[j].Apellido.CompareTo(Data.Instance.clienteslist[j + 1].Apellido);
+                    if (c > 0)
+                    {
+                        var auxiliar = Data.Instance.clienteslist[j + 1];
+                        Data.Instance.clienteslist[j + 1] = Data.Instance.clienteslist[j];
+                        Data.Instance.clienteslist[j] = auxiliar;
+                    }
+                }
+            }
+        }
     }
 }

@@ -31,6 +31,38 @@ namespace LAB0DS.Helpers
                 Apellido = "Salazar",
                 Descripcion = "Cliente VIP"
 
+            },
+            new ClientesModel
+            {
+                Telefono = 49930011,
+                Nombre = "Peter",
+                Apellido = "Parker",
+                Descripcion = "Denegado"
+
+            },
+            new ClientesModel
+            {
+                Telefono = 67892345,
+                Nombre = "Reed",
+                Apellido = "Richards",
+                Descripcion = "Socio"
+
+            },
+            new ClientesModel
+            {
+                Telefono = 90619023,
+                Nombre = "Bruce",
+                Apellido = "Banner",
+                Descripcion = "Fundador"
+
+            },
+            new ClientesModel
+            {
+                Telefono = 20082022,
+                Nombre = "Antony",
+                Apellido = "Stark",
+                Descripcion = "Fundador"
+
             }
         };
 
