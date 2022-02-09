@@ -20,13 +20,14 @@ namespace LAB0DS.Controllers
         // GET: ClientesController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var model = Data.Instance.clienteslist.Find(cliente => cliente.Telefono == id);
+            return View(model);
         }
 
         // GET: ClientesController/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new ClientesModel());
         }
 
         // POST: ClientesController/Create
@@ -36,7 +37,20 @@ namespace LAB0DS.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                var response = ClientesModel.Save(new ClientesModel
+                {
+                    Telefono = int.Parse(collection["Telefono"]),
+                    Nombre = collection["Nombre"],
+                    Apellido = collection["Apellido"],
+                    Descripcion = collection["Descripcion"]
+                });
+                
+                if(response)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewBag["Error"] = "Error while creating new element";
+                return View();
             }
             catch
             {
@@ -47,7 +61,8 @@ namespace LAB0DS.Controllers
         // GET: ClientesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = Data.Instance.clienteslist.Find(cliente => cliente.Telefono == id);
+            return View(model);
         }
 
         // POST: ClientesController/Edit/5
@@ -57,6 +72,13 @@ namespace LAB0DS.Controllers
         {
             try
             {
+                ClientesModel.Edit(id, new ClientesModel
+                {
+                    Telefono = int.Parse(collection["Telefono"]),
+                    Nombre = collection["Nombre"],
+                    Apellido = collection["Apellido"],
+                    Descripcion = collection["Descripcion"]
+                });
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -68,7 +90,8 @@ namespace LAB0DS.Controllers
         // GET: ClientesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var model = Data.Instance.clienteslist.Find(cliente => cliente.Telefono == id);
+            return View(model);
         }
 
         // POST: ClientesController/Delete/5
@@ -78,6 +101,7 @@ namespace LAB0DS.Controllers
         {
             try
             {
+                ClientesModel.Clean(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
