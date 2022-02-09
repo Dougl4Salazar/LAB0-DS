@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<LAB0DS.Models.ClientesModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "OrdenNombre";
 }
 
 <h1>Clientes</h1>
 
 <p>
-    <a asp-action="Create">|  Nuevo Cliente  |</a>
-    <a asp-action="OrdenNombre"> Ordenar por Nombre  |</a>
-    <a asp-action="OrdenApellido"> Ordenar por Apellido  |</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -45,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Telefono}) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.Telefono }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Telefono }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Telefono })
             </td>
